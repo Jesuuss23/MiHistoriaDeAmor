@@ -1,0 +1,329 @@
+/* --- preguntas-style.css --- */
+
+body {
+    background-color: #C9E9F2;
+    font-family: 'Quicksand', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.preguntas-header {
+    background-color: #a56aed;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.preguntas-header h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.8em;
+    margin: 0;
+}
+
+.preguntas-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding-bottom: 50px;
+}
+
+/* --- 1. Tarjeta del Mensaje Especial --- */
+.mensaje-tarjeta {
+    background-color: #FFC0CB; /* Rosa suave */
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    border: 3px solid #FF6347; /* Borde de acento rojo */
+    text-align: center;
+}
+
+.mensaje-titulo {
+    font-family: 'Pacifico', cursive;
+    color: #7B68EE; /* Lila de tu paleta */
+    font-size: 2.2em;
+    margin-top: 0;
+}
+
+.mensaje-texto {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.mensaje-firma {
+    font-style: italic;
+    font-weight: bold;
+    color: #FF6347;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+/* --- 2. Sección de Formulario (Grid) --- */
+.formulario-grid {
+    display: grid;
+    /* Dos columnas: una para campos (2/3), otra para el cartel (1/3) */
+    grid-template-columns: 2fr 1fr; 
+    gap: 30px;
+    padding: 20px;
+}
+
+.campos-preguntas {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.campo {
+    margin-bottom: 25px;
+}
+
+.campo label {
+    display: block;
+    font-weight: bold;
+    color: #6471d1;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.campo input[type="text"],
+.campo textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #E6E6FA;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s;
+    resize: vertical;
+}
+
+.campo input:focus, .campo textarea:focus {
+    border-color: #a56aed;
+    outline: none;
+}
+
+/* --- 3. Cartel de Información de Envío --- */
+.cartel-envio {
+    background-color: #E6E6FA; /* Lila muy claro */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    height: fit-content; /* Se ajusta a la altura del contenido */
+    text-align: center;
+    border: 1px dashed #7B68EE;
+}
+
+.cartel-texto {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #333;
+}
+
+.boton-enviar {
+    background-color: #FF6347;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.boton-enviar:hover {
+    background-color: #E74C3C;
+    transform: scale(1.02);
+}
+
+/* --- Estilos para la Barra de Navegación Unificada --- */
+
+.main-nav {
+    background-color: #a56aed; /* Púrpura suave de tu paleta */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between; /* Espacia la marca del menú */
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    
+    /* HACER QUE EL MENÚ SEA FIJO EN LA PARTE SUPERIOR */
+    position: sticky; /* O 'fixed', pero 'sticky' es más moderno si el body no tiene overflow */
+    top: 0;
+    width: 100%;
+    box-sizing: border-box; /* Asegura que el padding no exceda el 100% */
+    z-index: 50; /* Asegura que esté por encima de todo el contenido */
+}
+
+.nav-brand {
+    font-family: 'Pacifico', cursive; /* Fuente destacada */
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #FFC0CB; /* Rosa claro para el título */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px; /* Espacio entre enlaces */
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Efecto hover */
+.nav-links li a:hover {
+    background-color: #7B68EE; /* Lila más oscuro */
+    color: #C9E9F2; /* Azul claro de tu fondo */
+}
+
+/* Estilo para el enlace especial (ej. Preguntas Finales) */
+.nav-special {
+    background-color: #FF6347; /* Rojo/Naranja de tu paleta */
+    color: white !important;
+    padding: 5px 12px !important;
+    border-radius: 20px !important;
+}
+
+.nav-special:hover {
+    background-color: #E74C3C !important;
+}
+
+/* --- Ajuste Responsive para Móviles --- */
+@media (max-width: 700px) {
+    .main-nav {
+        flex-direction: column; /* Apila la marca y los enlaces */
+        padding: 10px;
+    }
+
+    .nav-brand {
+        margin-bottom: 10px;
+        font-size: 1.5em;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: space-around; /* Distribuye los enlaces uniformemente */
+        gap: 5px;
+    }
+
+    .nav-links li a {
+        font-size: 0.9em;
+        padding: 5px;
+    }
+}
+/* --- Responsive para Móviles --- */
+@media (max-width: 800px) {
+    .formulario-grid {
+        /* En móvil, se apilan en una sola columna */
+        grid-template-columns: 1fr;
+    }
+    
+    .preguntas-header h1 {
+        font-size: 2em;
+    }
+    
+    .mensaje-tarjeta, .campos-preguntas, .cartel-envio {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    /* 1. Contenedor Principal (main-nav) */
+    .main-nav {
+        flex-direction: column; /* Apila el título y los enlaces uno encima del otro */
+        padding: 10px; /* Menos espacio alrededor */
+        height: auto; /* Permite que el menú se expanda verticalmente */
+    }
+
+    /* 2. Título (nav-brand) */
+    .nav-brand {
+        margin-bottom: 8px; /* Pequeño espacio debajo del título */
+        font-size: 1.4em; /* Reducimos el tamaño del título */
+        text-align: center;
+    }
+
+    /* 3. Lista de Enlaces (nav-links) */
+    .nav-links {
+        /* Usamos flex wrap para que los enlaces salten a la siguiente línea si no caben */
+        flex-wrap: wrap; 
+        justify-content: center; /* Centra los grupos de enlaces */
+        width: 100%;
+        gap: 10px; /* Espacio entre los botones */
+    }
+
+    /* 4. Enlaces Individuales (li a) */
+    .nav-links li {
+        margin: 2px 0; /* Pequeño margen vertical */
+    }
+    
+    .nav-links li a {
+        font-size: 0.9em; /* Hacemos la fuente más pequeña */
+        padding: 6px 10px; /* Ajustamos el padding para que parezcan botones */
+        display: block; /* Opcional: Hace que el enlace ocupe todo el espacio disponible */
+        text-align: center;
+    }
+    
+    /* Ajuste para el enlace especial (Preguntas Finales) */
+    .nav-special {
+        font-size: 0.9em; 
+        padding: 6px 12px !important;
+    }
+}
+@media (max-width: 700px) {
+    /* 1. Contenedor Principal (main-nav) */
+    .main-nav {
+        flex-direction: column; /* Apila el título y los enlaces uno encima del otro */
+        padding: 10px; /* Menos espacio alrededor */
+        height: auto; /* Permite que el menú se expanda verticalmente */
+    }
+
+    /* 2. Título (nav-brand) */
+    .nav-brand {
+        margin-bottom: 8px; /* Pequeño espacio debajo del título */
+        font-size: 1.4em; /* Reducimos el tamaño del título */
+        text-align: center;
+    }
+
+    /* 3. Lista de Enlaces (nav-links) */
+    .nav-links {
+        /* Usamos flex wrap para que los enlaces salten a la siguiente línea si no caben */
+        flex-wrap: wrap; 
+        justify-content: center; /* Centra los grupos de enlaces */
+        width: 100%;
+        gap: 10px; /* Espacio entre los botones */
+    }
+
+    /* 4. Enlaces Individuales (li a) */
+    .nav-links li {
+        margin: 2px 0; /* Pequeño margen vertical */
+    }
+    
+    .nav-links li a {
+        font-size: 0.9em; /* Hacemos la fuente más pequeña */
+        padding: 6px 10px; /* Ajustamos el padding para que parezcan botones */
+        display: block; /* Opcional: Hace que el enlace ocupe todo el espacio disponible */
+        text-align: center;
+    }
+    
+    /* Ajuste para el enlace especial (Preguntas Finales) */
+    .nav-special {
+        font-size: 0.9em; 
+        padding: 6px 12px !important;
+    }
+}

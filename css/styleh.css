@@ -1,0 +1,346 @@
+/* --- style.css --- */
+
+/* --- ESTILOS GLOBALES Y CONTENEDOR --- */
+body {
+    background-color: #C9E9F2; /* Fondo Azul Claro */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Quicksand', 'Arial', sans-serif;
+    color: #333;
+    padding: 20px 0;
+    /* Eliminamos overflow: hidden para permitir el scroll */
+}
+
+/* Encabezado */
+.main-header {
+    width: 90%; 
+    max-width: 1400px; /* Ancho para la cuadrícula */
+    margin: 0 auto 50px auto; 
+    text-align: left;
+    color: #6471d1; /* Color de tu paleta */
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Contenedor de la Cuadrícula: 4 columnas (Para el 3x4) */
+.home-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Columnas de igual ancho */
+    gap: 25px; /* Espacio entre las tarjetas */
+    width: 90%;
+    max-width: 1400px;
+    padding: 20px 0;
+    margin: 0 auto;
+}
+
+/* --- ESTILOS DE LA TARJETA (CUADRO) --- */
+
+.tarjeta-nube { /* Mantenemos la clase por consistencia con el HTML */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: transform 0.5s ease-in-out, box-shadow 0.3s;
+    
+    /* BORDES REDONDEADOS SIMPLES (quitamos clip-path de la nube) */
+    border-radius: 15px; 
+    
+    /* ALTURA FIJA para asegurar que todas se vean iguales */
+    height: 400px; 
+    min-height: 400px;
+}
+
+.tarjeta-nube:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* --- ESTILOS DE LA PORTADA (CUBIERTA INTERACTIVA) --- */
+
+.tarjeta-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    
+    /* Centrar contenido (título y botón) vertical y horizontalmente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    cursor: pointer;
+    z-index: 10;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s;
+    border-radius: 15px; /* Asegura que la portada también tenga bordes redondeados */
+}
+
+/* Capa de color sobre la imagen */
+.tarjeta-cover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(165, 106, 237, 0.65); /* Púrpura de tu paleta con más opacidad */
+    z-index: 1;
+    border-radius: 15px;
+}
+
+.cover-title {
+    color: white;
+    font-size: 1.6em;
+    text-align: center;
+    z-index: 2;
+    margin-bottom: 25px; /* Más espacio entre título y botón */
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Botón Abrir */
+.boton-abrir {
+    background-color: #FF6347; /* Rojo/Naranja de tu paleta */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px; /* Borde muy redondeado para un look más suave */
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    z-index: 2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.boton-abrir:hover {
+    background-color: #E74C3C;
+    transform: scale(1.05);
+}
+
+/* --- ESTILOS DEL CONTENIDO REVELADO --- */
+
+.tarjeta-content {
+    /* Mantenemos la altura fija de la tarjeta para uniformidad */
+    height: 400px;
+    min-height: 400px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    color: #333;
+    opacity: 0; 
+    transition: opacity 0.5s ease-in-out;
+    overflow-y: auto; /* Permite scroll dentro del contenido si es muy largo */
+}
+
+/* Ajustes de estilo para el contenido de texto */
+.tarjeta-content p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    font-size: 0.95em;
+}
+
+.tarjeta-content h3 {
+    color: #9f69c6; 
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+
+/* --- EFECTO DE APERTURA (CLASE AÑADIDA POR JS) --- */
+
+.collapsible-section.open .tarjeta-cover {
+    transform: translateY(100%); 
+    opacity: 0; 
+    pointer-events: none;
+}
+
+.collapsible-section.open .tarjeta-content {
+    opacity: 1; 
+}
+
+/* --- ESTILO PARA LA ÚLTIMA TARJETA (SI HAY UNA) --- */
+
+.tarjeta-final {
+    /* Ocupa 2 columnas y se centra */
+    grid-column: span 2; 
+    margin: 0 auto; 
+    width: 100%; /* Ocupa todo el espacio de las 2 columnas */
+    max-width: none;
+}
+/* --- Estilos para la Barra de Navegación Unificada --- */
+
+.main-nav {
+    background-color: #a56aed; /* Púrpura suave de tu paleta */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between; /* Espacia la marca del menú */
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    
+    /* HACER QUE EL MENÚ SEA FIJO EN LA PARTE SUPERIOR */
+    position: sticky; /* O 'fixed', pero 'sticky' es más moderno si el body no tiene overflow */
+    top: 0;
+    width: 100%;
+    box-sizing: border-box; /* Asegura que el padding no exceda el 100% */
+    z-index: 50; /* Asegura que esté por encima de todo el contenido */
+}
+
+.nav-brand {
+    font-family: 'Pacifico', cursive; /* Fuente destacada */
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #FFC0CB; /* Rosa claro para el título */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px; /* Espacio entre enlaces */
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Efecto hover */
+.nav-links li a:hover {
+    background-color: #7B68EE; /* Lila más oscuro */
+    color: #C9E9F2; /* Azul claro de tu fondo */
+}
+
+/* Estilo para el enlace especial (ej. Preguntas Finales) */
+.nav-special {
+    background-color: #FF6347; /* Rojo/Naranja de tu paleta */
+    color: white !important;
+    padding: 5px 12px !important;
+    border-radius: 20px !important;
+}
+
+.nav-special:hover {
+    background-color: #E74C3C !important;
+}
+
+/* --- Ajuste Responsive para Móviles --- */
+@media (max-width: 700px) {
+    .main-nav {
+        flex-direction: column; /* Apila la marca y los enlaces */
+        padding: 10px;
+    }
+
+    .nav-brand {
+        margin-bottom: 10px;
+        font-size: 1.5em;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: space-around; /* Distribuye los enlaces uniformemente */
+        gap: 5px;
+    }
+
+    .nav-links li a {
+        font-size: 0.9em;
+        padding: 5px;
+    }
+}
+/* --- Media Query para Dispositivos Móviles (Menos de 768px) --- */
+@media (max-width: 768px) {
+    
+    /* 1. APILAR TARJETAS: El contenedor principal pasa de 4 a 1 columna */
+    .home-container {
+        grid-template-columns: 1fr; /* Una sola columna que ocupa el ancho completo */
+        gap: 30px; /* Espacio entre tarjetas apiladas */
+        padding: 10px; /* Reducimos el padding general */
+    }
+
+    /* 2. AJUSTAR ANCHO Y ALTURA DE LAS TARJETAS AL MÓVIL */
+    .tarjeta-nube {
+        width: 100%; /* La tarjeta ocupa el 100% de la columna */
+        height: auto; /* La altura se vuelve automática para que el contenido fluya */
+        min-height: 350px; /* Un mínimo para que se vea bien la portada */
+    }
+    
+    .tarjeta-content {
+        height: auto; /* También la hacemos automática */
+        min-height: 350px;
+        padding: 15px; /* Reducimos el padding interno */
+    }
+
+    /* 3. CENTRAR LA ÚLTIMA TARJETA (Ya no es necesario que ocupe 2 cuadros) */
+    .tarjeta-final {
+        grid-column: 1 / span 1; /* Aseguramos que ocupe solo 1 columna */
+        width: 100%;
+        margin: 0;
+    }
+    
+    /* 4. TAMAÑO DEL TEXTO PARA FACILITAR LA LECTURA */
+    .cover-title {
+        font-size: 1.4em;
+    }
+    
+    .main-header h1 {
+        font-size: 1.5em;
+    }
+}
+@media (max-width: 700px) {
+    /* 1. Contenedor Principal (main-nav) */
+    .main-nav {
+        flex-direction: column; /* Apila el título y los enlaces uno encima del otro */
+        padding: 10px; /* Menos espacio alrededor */
+        height: auto; /* Permite que el menú se expanda verticalmente */
+    }
+
+    /* 2. Título (nav-brand) */
+    .nav-brand {
+        margin-bottom: 8px; /* Pequeño espacio debajo del título */
+        font-size: 1.4em; /* Reducimos el tamaño del título */
+        text-align: center;
+    }
+
+    /* 3. Lista de Enlaces (nav-links) */
+    .nav-links {
+        /* Usamos flex wrap para que los enlaces salten a la siguiente línea si no caben */
+        flex-wrap: wrap; 
+        justify-content: center; /* Centra los grupos de enlaces */
+        width: 100%;
+        gap: 10px; /* Espacio entre los botones */
+    }
+
+    /* 4. Enlaces Individuales (li a) */
+    .nav-links li {
+        margin: 2px 0; /* Pequeño margen vertical */
+    }
+    
+    .nav-links li a {
+        font-size: 0.9em; /* Hacemos la fuente más pequeña */
+        padding: 6px 10px; /* Ajustamos el padding para que parezcan botones */
+        display: block; /* Opcional: Hace que el enlace ocupe todo el espacio disponible */
+        text-align: center;
+    }
+    
+    /* Ajuste para el enlace especial (Preguntas Finales) */
+    .nav-special {
+        font-size: 0.9em; 
+        padding: 6px 12px !important;
+    }
+}

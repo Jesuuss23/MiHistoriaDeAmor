@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Persona Especial</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="portada-contenedor">
+        
+        <div class="tarjeta-inicial" id="tarjetaInicial">
+            <img src="imagenes/portada-conejo.png" alt="Conejo y Carta de Corazón" class="imagen-portada">
+        </div>
+                   <button class="boton-abrir" onclick="abrirTarjeta()">ABRE AQUÍ</button>
+
+        <div class="tarjeta-login" id="tarjetaLogin">
+            <h2 class="titulo-login">Bienvenida, Persona Especial</h2>
+            <p class="frase-corazon">Para entrar a ❤️, ingresa los datos de nuestra historia.</p>
+
+            <form id="formularioCorazon">
+                <div class="campo-login">
+                    <label for="lugar">¿Nuestra primera interacción?</label>
+                    <select id="lugar" required>
+                        <option value="">-- Espero lo hagas al primer intento --</option>
+                        <option value="lugar_correcto">En el patio del Bosque 1182</option> 
+                        <option value="opcionA">En la calle</option>
+                        <option value="opcionB">En las escaleras</option>
+                    </select>
+                </div>
+
+                <div class="campo-login">
+                    <label for="fecha">Nuestra Fecha Especial (DD/MM/AAAA)</label>
+                    <input type="text" id="fecha" placeholder="Ej: 01/05/2023" required>
+                </div>
+
+                <button type="submit" class="boton-entrar">ENTRAR AL CORAZÓN</button>
+
+                <p id="mensajeError" class="mensaje-error"></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

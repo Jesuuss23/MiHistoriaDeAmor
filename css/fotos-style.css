@@ -1,0 +1,289 @@
+/* --- fotos-style.css --- */
+
+/* --- 1. Estilos Globales y Header --- */
+body {
+    background-color: #C9E9F2; /* Fondo de tu paleta */
+    font-family: 'Quicksand', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.galeria-header {
+    background-color: #7B68EE; /* Azul/lila de tu paleta */
+    color: white;
+    text-align: center;
+    padding: 2.5rem 0;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.galeria-header h1 {
+    font-size: 2.5em;
+    margin: 0 0 10px 0;
+}
+
+.galeria-header p {
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* --- 2. Contenedor de Galería y Secciones --- */
+.galeria-container {
+    width: 95%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.photo-section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    color: #9f69c6; /* Púrpura suave de tu paleta */
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    border-bottom: 2px dashed #FFC0CB;
+    padding-bottom: 10px;
+}
+
+/* --- 3. Carrusel (Desplazamiento Horizontal) --- */
+.carousel-wrapper {
+    overflow-x: auto; /* Permite el scroll horizontal */
+    overflow-y: hidden; /* Oculta el scroll vertical */
+    padding-bottom: 20px; /* Margen para que la barra de scroll no se pegue */
+}
+
+.photo-carousel {
+    display: flex; /* Coloca los items uno al lado del otro */
+    gap: 15px; /* Espacio entre las fotos */
+    padding: 10px 0;
+}
+
+.photo-item {
+    flex-shrink: 0; /* Evita que las fotos se encojan */
+    width: 280px; /* Ancho fijo de la vista previa de la foto */
+    height: 200px; /* Alto fijo de la vista previa */
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.photo-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin distorsionarse */
+}
+
+/* --- 4. Modal (Ventana Emergente de la Foto) --- */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 100; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Permite scroll si la imagen es muy grande */
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo negro semitransparente */
+    display: flex; /* Centra el contenido */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+}
+
+.modal-content {
+    /* Quitamos el margin: auto; ya que flexbox lo maneja */
+    display: block; 
+    width: auto; /* Permite que el ancho se ajuste automáticamente */
+    max-width: 90%; /* Limita el ancho al 90% del modal */
+    height: auto; /* Permite que el alto se ajuste automáticamente */
+    max-height: 90vh; /* ¡CLAVE! Limita el alto al 90% del viewport height (alto de la pantalla) */
+                      /* Esto asegura que las fotos largas se muestren completas y escalen */
+    
+    animation-name: zoom;
+    animation-duration: 0.6s;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* Sombra para que destaque */
+}
+
+@keyframes zoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+/* --- Estilos para la Barra de Navegación Unificada --- */
+
+.main-nav {
+    background-color: #a56aed; /* Púrpura suave de tu paleta */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between; /* Espacia la marca del menú */
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    
+    /* HACER QUE EL MENÚ SEA FIJO EN LA PARTE SUPERIOR */
+    position: sticky; /* O 'fixed', pero 'sticky' es más moderno si el body no tiene overflow */
+    top: 0;
+    width: 100%;
+    box-sizing: border-box; /* Asegura que el padding no exceda el 100% */
+    z-index: 50; /* Asegura que esté por encima de todo el contenido */
+}
+
+.nav-brand {
+    font-family: 'Pacifico', cursive; /* Fuente destacada */
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #FFC0CB; /* Rosa claro para el título */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px; /* Espacio entre enlaces */
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Efecto hover */
+.nav-links li a:hover {
+    background-color: #7B68EE; /* Lila más oscuro */
+    color: #C9E9F2; /* Azul claro de tu fondo */
+}
+
+/* Estilo para el enlace especial (ej. Preguntas Finales) */
+.nav-special {
+    background-color: #FF6347; /* Rojo/Naranja de tu paleta */
+    color: white !important;
+    padding: 5px 12px !important;
+    border-radius: 20px !important;
+}
+
+.nav-special:hover {
+    background-color: #E74C3C !important;
+}
+
+/* --- Ajuste Responsive para Móviles --- */
+@media (max-width: 700px) {
+    .main-nav {
+        flex-direction: column; /* Apila la marca y los enlaces */
+        padding: 10px;
+    }
+
+    .nav-brand {
+        margin-bottom: 10px;
+        font-size: 1.5em;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: space-around; /* Distribuye los enlaces uniformemente */
+        gap: 5px;
+    }
+
+    .nav-links li a {
+        font-size: 0.9em;
+        padding: 5px;
+    }
+}
+@media (max-width: 768px) {
+    .galeria-header h1 {
+        font-size: 1.8em;
+    }
+    .galeria-header p {
+        font-size: 0.9em;
+    }
+    .section-title {
+        font-size: 1.5em;
+    }
+    .photo-item {
+        width: 200px;
+        height: 150px;
+    }
+
+    .modal-content {
+        max-width: 95%;
+        max-height: 95vh;
+    }
+}
+@media (max-width: 700px) {
+    /* 1. Contenedor Principal (main-nav) */
+    .main-nav {
+        flex-direction: column; /* Apila el título y los enlaces uno encima del otro */
+        padding: 10px; /* Menos espacio alrededor */
+        height: auto; /* Permite que el menú se expanda verticalmente */
+    }
+
+    /* 2. Título (nav-brand) */
+    .nav-brand {
+        margin-bottom: 8px; /* Pequeño espacio debajo del título */
+        font-size: 1.4em; /* Reducimos el tamaño del título */
+        text-align: center;
+    }
+
+    /* 3. Lista de Enlaces (nav-links) */
+    .nav-links {
+        /* Usamos flex wrap para que los enlaces salten a la siguiente línea si no caben */
+        flex-wrap: wrap; 
+        justify-content: center; /* Centra los grupos de enlaces */
+        width: 100%;
+        gap: 10px; /* Espacio entre los botones */
+    }
+
+    /* 4. Enlaces Individuales (li a) */
+    .nav-links li {
+        margin: 2px 0; /* Pequeño margen vertical */
+    }
+    
+    .nav-links li a {
+        font-size: 0.9em; /* Hacemos la fuente más pequeña */
+        padding: 6px 10px; /* Ajustamos el padding para que parezcan botones */
+        display: block; /* Opcional: Hace que el enlace ocupe todo el espacio disponible */
+        text-align: center;
+    }
+    
+    /* Ajuste para el enlace especial (Preguntas Finales) */
+    .nav-special {
+        font-size: 0.9em; 
+        padding: 6px 12px !important;
+    }
+}

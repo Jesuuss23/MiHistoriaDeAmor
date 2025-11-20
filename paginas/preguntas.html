@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas de Mi Corazón</title>
+    <link rel="stylesheet" href="../css/preguntas-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="main-nav">
+    <div class="nav-brand">Mi Historia de Amor 💞</div>
+    <ul class="nav-links">
+        <li><a href="../paginas/home.html">Inicio (Recuerdos)</a></li>
+        <li><a href="../paginas/melodia.html">Melodías 🎧</a></li>
+        <li><a href="../paginas/poemas.html">Poemas 📜</a></li>
+        <li><a href="../paginas/fotos.html">Fotos 📸</a></li>
+        <li><a href="../paginas/preguntas.html" class="nav-special">Preguntas Finales</a></li>
+    </ul>
+</nav>
+
+    <header class="preguntas-header">
+        <h1>Una Carta, Cuatro Preguntas...</h1>
+    </header>
+
+    <main class="preguntas-container">
+
+        <section class="mensaje-tarjeta">
+            <h2 class="mensaje-titulo">Mi Amor, Gracias por este Viaje...</h2>
+            <p class="mensaje-texto">
+                Gracias por el privilegio de compartir estos recuerdos y esta historia. Espero que cada detalle te haya
+                recordado cuánto te amo❤️.
+                <br><br>
+                Lo sé, soy muy tonto, siempre la paro jodiendo, por favor Yami, sé que es muy rastrero de mi parte, pero
+                ¿qué puedo hacer? Te amo mucho, esto iba a ser por 1 año juntos, me faltaban detalles, lo siento mucho,
+                perdóname por todo lo que te dije e hice, soy un idiota, perdona todos mis errores. Sé que no eres
+                alguien que merece esto. En un video escuché: "El que piensa que está bien lo que hace no cambiará
+                aunque le digan que está mal, pero la persona que sabe que está mal sí puede cambiar..." Es toda una
+                psicología. No, yo no sabía por qué soy así, pero hoy pasó algo en mi casa y me abrió los ojos, y yo no
+                quiero ser así como cierta persona... Perdón Yami, pero no me dejes, por favor, tenemos planes...
+                <br><br>
+                Quiero que sepas que te amo muchísimo. Eres la melodía, el poema y la mejor locura.
+                Ahora, solo me queda una cosa por pedir: contesta estas preguntas para mí.
+            </p>
+            <p class="mensaje-firma">Con todo mi corazón, Jesús.</p>
+        </section>
+
+        <section class="formulario-seccion">
+
+ <div id="preguntaForm" class="formulario-grid"> 
+
+            <div class="campos-preguntas">
+                <div class="campo">
+                    <label for="p1">1. ¿Cuál es tu recuerdo favorito de los que viste aquí?</label>
+                    <textarea id="p1" name="RecuerdoFavorito" rows="3" required></textarea>
+                </div>
+
+                <div class="campo">
+                    <label for="p2">2. ¿Crees que nada de mi es rescatable?</label>
+                    <input type="text" id="p2" name="CreesRescatable" required>
+                </div>
+
+                <div class="campo">
+                    <label for="p3">3. ¿Podrias ser mi guia para el camino de fallos que estoy llevando?</label>
+                    <input type="text" id="p3" name="SerMiGuia" required>
+                </div>
+
+                <div class="campo">
+                    <label for="p4">4. ¿Aun quieres un futuro juntos?</label>
+                    <textarea id="p4" name="QuieresFuturo" rows="3" required></textarea>
+                </div>
+                
+                <div class="campo">
+                    <label for="p5">5. ¿Quieres ser mi novia :(?</label>
+                    <textarea id="p5" name="QuieresNovia" rows="3" required></textarea>
+                </div>
+                
+                <div class="campo">
+                    <label for="p6">6. Quiero contarte cosas,¿Podrias desbloquearme, y poder hablar :(?</label>
+                    <textarea id="p6" name="Desbloqueame" rows="3" required></textarea>
+                </div>
+            </div>
+
+                <div class="cartel-envio">
+                    <p class="cartel-texto">
+                        💌 ¡Gracias por Todo!
+                        <br>
+                        Lo que escribas aquí y presiones Enviar se me enviará directamente a mi correo electrónico.
+                        Léelo con calma. Tal vez no funcione el envio de corre :( tendria que abrir tu correo y estar todo escrito con tus respuestas, pero si eso no pasa, es porque no funciona, podrias desbloquearme y enviarme tus respuestas, espero tus respuestas...
+                        <br><br>
+                        💞 ¡Te amo mucho!
+                    </p>
+<button type="button" class="boton-enviar" onclick="enviarCorreo()">Enviar Respuestas</button>
+            </div>
+
+            </form>
+        </section>
+
+    </main>
+
+    <script src="../js/preguntas-script.js"></script>
+</body>
+
+</html>
