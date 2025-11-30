@@ -45,7 +45,7 @@ document.getElementById('formularioCorazon').addEventListener('submit', function
     const mensajeError = document.getElementById('mensajeError');
 
     const LUGAR_CORRECTO = 'lugar_correcto'; 
-    const FECHA_CORRECTA = '14/12/24'; 
+    const FECHA_CORRECTA = '78/11/24'; 
 
     if (lugarSeleccionado === LUGAR_CORRECTO && fechaIngresada === FECHA_CORRECTA) {
         alert("¡CORRECTO! Has encontrado la llave. Entrando a nuestro espacio...");
@@ -85,3 +85,4 @@ document.getElementById('formularioCorazon').addEventListener('submit', function
     });
 });
 });
+
